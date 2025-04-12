@@ -1,4 +1,4 @@
-package org.example.pages.PageObjectModel.AppVwo;
+package org.example.pages.PageObjectModel.AppVwo.normal_POM;
 
 import org.example.utils.WaitHelpers;
 import org.openqa.selenium.By;
@@ -25,10 +25,11 @@ public class LoginPage {
     public void loginToVwoWithValidloginCred(String user,String pwd)
     {
         driver.get("http://app.vwo.com");
-        driver.findElement(username);
+        driver.findElement(username).sendKeys(user);
         driver.findElement(userpassword).sendKeys(pwd);
         driver.findElement(signin).click();
 
+        WaitHelpers.waitJVM(5000);
 
     }
 
