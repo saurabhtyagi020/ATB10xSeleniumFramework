@@ -1,5 +1,7 @@
 package org.example.pages.PageFactory.AppVwo;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.example.driver.DriverManager;
 import org.example.utils.PropertiesReader;
 import org.example.utils.WaitHelpers;
@@ -9,6 +11,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPagePF {
+
+    private static final Logger logger = LogManager.getLogger(LoginPagePF.class);
 
     WebDriver driver;
     public LoginPagePF(WebDriver driver)
@@ -31,7 +35,9 @@ public class LoginPagePF {
 
     public String vwo_login_with_invalidCred(String user,String pwd)
     {
+
         driver.get(PropertiesReader.readKey("url"));
+        logger.info("email enter in loginpage");
         email_address.sendKeys(user);
         email_password.sendKeys(pwd);
         submit_button.click();

@@ -52,10 +52,10 @@ public class DriverManager {
 
     public static void down()
     {
-    //  if (getDriver()!=null)
-    //  {
+      if (getDriver()!=null)
+      {
           driver.quit();
-        //  driver = null;
-    //  }
+          driver = null;
+      }
     }
 }
